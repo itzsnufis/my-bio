@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stack — itzsnufis</title>
+  <meta name="description" content="Core, low-level, web and tooling: the languages and tools in daily use, with levels instead of percentages and the caveats left in.">
+  <meta name="author" content="itzsnufis">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f12">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stack — itzsnufis">
+  <meta property="og:description" content="Levels, not percentages: C++, C, Zig, Go, Python, Rust, asm and the tooling around them.">
+  <meta property="og:locale" content="en">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__caret" aria-hidden="true">&gt;</span>
+        <span>itzsnufis</span>
+        <span class="brand__path">~/bio</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="projects.html">projects</a>
+        <a href="stack.html" aria-current="page">stack</a>
+      </nav>
+
+      <button class="btn btn--ghost" type="button" data-term-open aria-label="Open the terminal overlay">
+        <span aria-hidden="true">$_</span> terminal <kbd aria-hidden="true">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">stack</p>
+        <h1>Levels, not percentages.</h1>
+
+        <p class="hero__lead">
+          Nobody is 87% proficient at a language, and nobody has ever been helped by a
+          progress bar shaped like a skill. So this page lists what I actually reach for,
+          how often, and where the sharp edges are — core first, then low-level, then
+          everything that holds the two together.
+        </p>
+
+        <ul class="facts">
+          <li><strong>rule</strong> no percentages</li>
+          <li><strong>levels</strong> daily · often · occasional</li>
+          <li><strong>this site</strong> HTML, SCSS, 6 KB of JS</li>
+        </ul>
+
+        <ul class="legend gap-top">
+          <li><b>daily</b> — open in an editor most days</li>
+          <li><b>often</b> — reached for regularly, not every day</li>
+          <li><b>occasional</b> — used when the problem asks for it</li>
+        </ul>
+      </div>
+    </section>
+    <section class="sec" id="core" aria-labelledby="core-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">01</span>
+          <h2 class="sechead__title" id="core-h">Core &amp; low-level</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">where most of the code lives</span>
+        </header>
+
+        <div class="grid grid--2">
+          <div class="group" data-reveal>
+            <header class="group__head">
+              <h3>Core</h3>
+              <p>the working set</p>
+            </header>
+            <ul class="skillset">
+              <li>
+                <span class="skillset__name">C++</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Systems and tooling. The language I think in when memory layout is the actual problem.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Python</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Automation, analysis, throwaway experiments. Prototype first, rewrite only if it earns it.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Go</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Services and CLI tools. One binary, few dependencies, builds in the time it takes to sip coffee.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Java</span>
+                <span class="skillset__lvl" data-lvl="occasional">occasional</span>
+                <span class="skillset__note">The ecosystem still pulls its weight on some jobs. Verbose, but predictable.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group" data-reveal>
+            <header class="group__head">
+              <h3>Low-level &amp; hardware</h3>
+              <p>close enough to touch</p>
+            </header>
+            <ul class="skillset">
+              <li>
+                <span class="skillset__name">C</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Kernels, drivers, glue. Small surface, long lifetime, no opinions about my mistakes.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Zig</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">New low-level code, especially the kind where C would happily let me shoot a foot off.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Rust</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Where ownership rules save a class of evenings that would otherwise go to memory bugs.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Assembly (x86-64)</span>
+                <span class="skillset__lvl" data-lvl="occasional">occasional</span>
+                <span class="skillset__note">Boot paths, interrupt stubs, and the spots where the compiler needs supervision.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Electronics · I2C, SPI, level shifting</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Datasheets, timing diagrams, a multimeter, and the recurring discovery that ground is not optional.</span>
+              </li>
+              <li>
+                <span class="skillset__name">SBC bring-up (Raspberry Pi, Pico)</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">GPIO, buses, power sequencing, thermals — everything a datasheet promises and hardware then negotiates.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="web" aria-labelledby="web-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">02</span>
+          <h2 class="sechead__title" id="web-h">Web, secondary &amp; tooling</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">everything around the core</span>
+        </header>
+
+        <div class="grid grid--2">
+          <div class="group" data-reveal>
+            <header class="group__head">
+              <h3>Web &amp; secondary</h3>
+              <p>used with intent, not by default</p>
+            </header>
+            <ul class="skillset">
+              <li>
+                <span class="skillset__name">TypeScript</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Frontends that stay small. Types as documentation that the compiler actually reads.</span>
+              </li>
+              <li>
+                <span class="skillset__name">JavaScript</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Both sides of it: modern ESM where possible, and whatever legacy thing needs patching today.</span>
+              </li>
+              <li>
+                <span class="skillset__name">HTML &amp; SCSS</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Semantic markup, custom properties, no framework — this site is the reference implementation.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Bash</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">The duct tape. Almost every build, deploy and recovery story starts as a shell script.</span>
+              </li>
+              <li>
+                <span class="skillset__name">SQL</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Schemas designed before the first insert. Migrations are planned, not discovered.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Swift</span>
+                <span class="skillset__lvl" data-lvl="occasional">occasional</span>
+                <span class="skillset__note">Apple platforms, when a project insists on them. Pleasant language, opinionated hallway.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Kotlin</span>
+                <span class="skillset__lvl" data-lvl="occasional">occasional</span>
+                <span class="skillset__note">Android when it is the right target, and a genuinely nice language to think in.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Flutter</span>
+                <span class="skillset__lvl" data-lvl="occasional">occasional</span>
+                <span class="skillset__note">Cross-platform interfaces where that trade-off makes sense — prototypes, mostly.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="group" data-reveal>
+            <header class="group__head">
+              <h3>Environment &amp; tooling</h3>
+              <p>the machine that runs all of it</p>
+            </header>
+            <ul class="skillset">
+              <li>
+                <span class="skillset__name">Linux · CachyOS / Arch</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Daily driver. Rolling release, pacman and the AUR, and full control of the boot chain when it matters.</span>
+              </li>
+              <li>
+                <span class="skillset__name">Hyprland &amp; KDE</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Tiling for work; KDE when a graphical session should behave like a desktop instead of a puzzle.</span>
+              </li>
+              <li>
+                <span class="skillset__name">git</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Rebased, squashed, bisected. History is a tool, not an archive.</span>
+              </li>
+              <li>
+                <span class="skillset__name">GCC · Clang · cross-toolchains</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Including the cross-builds a kernel needs before it is allowed anywhere near real hardware.</span>
+              </li>
+              <li>
+                <span class="skillset__name">CMake · Meson · Make</span>
+                <span class="skillset__lvl" data-lvl="daily">daily</span>
+                <span class="skillset__note">Build systems that produce exactly what the build file says, which is more than some can claim.</span>
+              </li>
+              <li>
+                <span class="skillset__name">gdb · perf · strace</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Debugging starts with measurement, and ends with printf far more often than anyone admits.</span>
+              </li>
+              <li>
+                <span class="skillset__name">QEMU</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Where kernel work happens before it has to be brave enough to run on real hardware.</span>
+              </li>
+              <li>
+                <span class="skillset__name">systemd</span>
+                <span class="skillset__lvl" data-lvl="often">often</span>
+                <span class="skillset__note">Units, timers, journal. Deployments that survive a reboot without a babysitter.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--tight" id="caveats" aria-labelledby="caveats-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">03</span>
+          <h2 class="sechead__title" id="caveats-h">Caveats</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">the part most lists leave out</span>
+        </header>
+
+        <div class="grid grid--2">
+          <div class="prose" data-reveal>
+            <ul>
+              <li>Anything missing here is either forgotten or genuinely absent. Unlikely to be the first.</li>
+              <li>The levels are conservative on purpose: "often" means I would ship it tomorrow without asking anyone.</li>
+              <li>A framework is not a language. Used is not the same as authored, and this page does not pretend otherwise.</li>
+              <li>Everything here is boring by choice. Boring tools are the ones that still work at three in the morning.</li>
+            </ul>
+          </div>
+
+          <aside class="panel" data-reveal aria-label="How this site is built">
+            <div class="panel__head">
+              <span class="panel__label">this site</span>
+              <span class="mono mute">no build server</span>
+            </div>
+            <dl class="kv">
+              <dt>markup</dt>
+              <dd>semantic HTML5</dd>
+              <dt>styles</dt>
+              <dd>SCSS → one CSS file</dd>
+              <dt>script</dt>
+              <dd>~6 KB vanilla JS</dd>
+              <dt>fonts</dt>
+              <dd>Inter · JetBrains Mono</dd>
+              <dt>tracking</dt>
+              <dd>none</dd>
+              <dt>cookies</dt>
+              <dd>none, on principle</dd>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p class="foot__meta">© 2026 itzsnufis · hand-written HTML &amp; SCSS · no framework, no analytics</p>
+      <div class="foot__links">
+        <a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a>
+        <button class="btn btn--ghost" type="button" data-copy="github.com/itzsnufis">copy handle</button>
+        <span class="foot__meta"><span data-clock>--:--:--</span> local</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="term" data-term aria-label="Terminal">
+    <div class="term__bar">
+      <span>itzsnufi@cachyos: ~/bio</span>
+      <span>esc to close</span>
+    </div>
+    <div class="term__log" data-term-log role="log" aria-live="polite" aria-label="Terminal output"></div>
+    <div class="term__row">
+      <span class="term__ps1" aria-hidden="true">~ $</span>
+      <input data-term-input type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" aria-label="Terminal command" placeholder="type `help`">
+    </div>
+    <p class="term__hint">ctrl+l clears · ↑ ↓ walks the history · try `whoami`, `ls`, `cd projects`</p>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+

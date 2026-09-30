@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — itzsnufis</title>
+  <meta name="description" content="Deep dives into a custom operating system, a hand-built phone around a Raspberry Pi prototype, a hardware bench, and backend tooling that stays boring.">
+  <meta name="author" content="itzsnufis">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f12">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects — itzsnufis">
+  <meta property="og:description" content="An operating system from scratch, a phone built by hand, and the tooling that holds it together.">
+  <meta property="og:locale" content="en">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__caret" aria-hidden="true">&gt;</span>
+        <span>itzsnufis</span>
+        <span class="brand__path">~/bio</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="projects.html" aria-current="page">projects</a>
+        <a href="stack.html">stack</a>
+      </nav>
+
+      <button class="btn btn--ghost" type="button" data-term-open aria-label="Open the terminal overlay">
+        <span aria-hidden="true">$_</span> terminal <kbd aria-hidden="true">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">projects</p>
+        <h1>Four things, written down properly.</h1>
+
+        <p class="hero__lead">
+          No release notes and no roadmap theatre. Each of these started as a question
+          that was cheaper to answer with code than with an opinion — and each one is
+          still running somewhere, which is more than most side projects can claim.
+        </p>
+
+        <ul class="facts">
+          <li><strong>active</strong> os · phone · tooling</li>
+          <li><strong>bench</strong> raspberry pi experiments</li>
+          <li><strong>policy</strong> working titles, no marketing</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="dives" aria-labelledby="dives-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">01</span>
+          <h2 class="sechead__title" id="dives-h">Deep dives</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">problem, approach, current state</span>
+        </header>
+
+        <article class="deep" data-reveal aria-labelledby="os-h">
+          <header class="deep__head">
+            <span class="deep__slug">os/</span>
+            <h3 class="deep__title" id="os-h">An operating system, from an empty file</h3>
+            <span class="deep__state" data-state="active">
+              <span class="dot dot--busy" aria-hidden="true"></span>active · boots to a shell
+            </span>
+          </header>
+
+          <div class="deep__body">
+            <div class="prose">
+              <div class="block">
+                <span class="block__label">the problem</span>
+                <p>
+                  Every abstraction I leaned on daily was somebody else's decision. Page
+                  tables, scheduling, interrupt handling — all of it worked, none of it was
+                  mine to explain. That is a strange place to stand as someone who calls
+                  themselves a systems developer, so the abstraction had to go. Started at
+                  the boot sector.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">the approach</span>
+                <p>
+                  Small steps, each with a visible checkpoint: text mode, then a framebuffer,
+                  then an IDT that survives deliberately triggered exceptions, then a physical
+                  allocator, then paging, then a cooperative scheduler, then preemption. Every
+                  stage had to survive a cold boot on real hardware, because "works after a
+                  soft reset" is not a result.
+                </p>
+                <p>
+                  The honest part: the scheduler has been rewritten twice, and the second
+                  version is only now better than the first. Interrupt latency taught me to
+                  stop trusting intuition and go back to reading the manual properly.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">current state</span>
+                <p>
+                  Boots on x86-64 into a shell that runs a handful of real commands.
+                  Userspace isolation exists and is not trusted yet. Next: clean up the
+                  process model and get the filesystem past "suspiciously optimistic".
+                </p>
+              </div>
+            </div>
+
+            <aside class="panel" aria-label="Operating system facts">
+              <div class="panel__head">
+                <span class="panel__label">facts</span>
+              </div>
+              <dl class="kv">
+                <dt>status</dt>
+                <dd>active</dd>
+                <dt>target</dt>
+                <dd>x86-64</dd>
+                <dt>languages</dt>
+                <dd>C++ · C · asm</dd>
+                <dt>toolchain</dt>
+                <dd>cross-GCC · ld · QEMU</dd>
+                <dt>hard part</dt>
+                <dd>paging &amp; scheduler</dd>
+              </dl>
+              <ul class="tags gap-top">
+                <li class="tag tag--acc">kernel</li>
+                <li class="tag">bootloader</li>
+                <li class="tag">interrupts</li>
+                <li class="tag">no libc</li>
+              </ul>
+            </aside>
+          </div>
+        </article>
+
+        <article class="deep" data-reveal aria-labelledby="phone-h">
+          <header class="deep__head">
+            <span class="deep__slug">phone/</span>
+            <h3 class="deep__title" id="phone-h">A phone that opens with a screwdriver</h3>
+            <span class="deep__state" data-state="brewing">
+              <span class="dot dot--busy" aria-hidden="true"></span>bring-up · on the bench
+            </span>
+          </header>
+
+          <div class="deep__body">
+            <div class="prose">
+              <div class="block">
+                <span class="block__label">the problem</span>
+                <p>
+                  A phone is the computer most people trust the least and understand the
+                  most rarely: sealed shut, undocumented at the edges, impossible to repair
+                  without a service manual nobody handed out. I wanted one where every wire
+                  is accounted for and every layer can be replaced.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">the approach</span>
+                <p>
+                  A Raspberry Pi as the compute heart, mounted on a prototype carrier board.
+                  Around it, the parts that separate a computer from a phone: a real power
+                  path with battery, charger and regulators, a display over DSI, audio, a
+                  modem, and the glue logic that lets all of that talk to a board designed
+                  for none of it.
+                </p>
+                <p>
+                  That glue is where the work actually sits — level shifting, bus arbitration
+                  on I2C, power sequencing so nothing browns out when the radio wakes up, and
+                  thermal management that openly admits a Pi in a pocket-sized case is an
+                  ambitious machine.
+                </p>
+                <p>
+                  Software-wise it runs on a cut-down Linux for now. The operating system
+                  project is the long game: every subsystem a phone needs is one I eventually
+                  want to own, so the two projects keep trading pieces.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">current state</span>
+                <p>
+                  It boots, it drives the display, and it can place a call — which was the
+                  moment this stopped being a pile of boards. Currently losing a fight with
+                  antenna tuning, and relaying the carrier board for revision two, where
+                  hopefully all the cables point the right way.
+                </p>
+              </div>
+            </div>
+
+            <aside class="panel" aria-label="Custom phone facts">
+              <div class="panel__head">
+                <span class="panel__label">facts</span>
+              </div>
+              <dl class="kv">
+                <dt>status</dt>
+                <dd>bring-up</dd>
+                <dt>compute</dt>
+                <dd>Raspberry Pi</dd>
+                <dt>board</dt>
+                <dd>prototype carrier, rev 2</dd>
+                <dt>languages</dt>
+                <dd>Zig · C</dd>
+                <dt>hard part</dt>
+                <dd>power path &amp; RF</dd>
+              </dl>
+              <ul class="tags gap-top">
+                <li class="tag tag--acc">custom pcb</li>
+                <li class="tag">i2c · spi · dsi</li>
+                <li class="tag">power rails</li>
+                <li class="tag">bring-up</li>
+              </ul>
+            </aside>
+          </div>
+        </article>
+
+        <article class="deep" data-reveal aria-labelledby="rpi-h">
+          <header class="deep__head">
+            <span class="deep__slug">rpi/</span>
+            <h3 class="deep__title" id="rpi-h">The Raspberry Pi bench</h3>
+            <span class="deep__state" data-state="active">
+              <span class="dot dot--ok" aria-hidden="true"></span>ongoing · always plugged in
+            </span>
+          </header>
+
+          <div class="deep__body">
+            <div class="prose">
+              <div class="block">
+                <span class="block__label">the problem</span>
+                <p>
+                  Prototyping needs a place where boards, cables and bad ideas can meet
+                  without endangering the main machine. Mine is a corner of the desk with a
+                  permanently mounted Pi, a breadboard that never quite gets cleared, and a
+                  firm habit of measuring before guessing.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">the approach</span>
+                <p>
+                  One experiment at a time, written down: bus timing, sensor bring-up, GPIO
+                  work, thermal profiling, and small utilities that turn a Pi into a
+                  passable lab instrument — a serial logger here, a crude protocol sniffer
+                  there. Anything that proves useful gets pulled forward into the phone
+                  project, which is the only reason the breadboard is allowed to stay messy.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">current state</span>
+                <p>
+                  Rotating: SPI throughput on the Pico, behaviour under sustained thermal
+                  load, and a level-shifting circuit destined for the phone's carrier board.
+                  Half of these end with "that was obvious in hindsight", which is a fine
+                  outcome for a bench session.
+                </p>
+              </div>
+            </div>
+
+            <aside class="panel" aria-label="Raspberry Pi bench facts">
+              <div class="panel__head">
+                <span class="panel__label">facts</span>
+              </div>
+              <dl class="kv">
+                <dt>status</dt>
+                <dd>ongoing</dd>
+                <dt>hardware</dt>
+                <dd>Pi 4 · Pi Pico</dd>
+                <dt>instruments</dt>
+                <dd>logic analyzer · multimeter</dd>
+                <dt>languages</dt>
+                <dd>C · Python · Zig</dd>
+                <dt>hard part</dt>
+                <dd>timing &amp; thermals</dd>
+              </dl>
+              <ul class="tags gap-top">
+                <li class="tag tag--acc">gpio</li>
+                <li class="tag">spi</li>
+                <li class="tag">i2c</li>
+                <li class="tag">pico</li>
+              </ul>
+            </aside>
+          </div>
+        </article>
+
+        <article class="deep" data-reveal aria-labelledby="tools-h">
+          <header class="deep__head">
+            <span class="deep__slug">tools/</span>
+            <h3 class="deep__title" id="tools-h">Backend tooling with no surprises</h3>
+            <span class="deep__state" data-state="active">
+              <span class="dot dot--ok" aria-hidden="true"></span>running unattended
+            </span>
+          </header>
+
+          <div class="deep__body">
+            <div class="prose">
+              <div class="block">
+                <span class="block__label">the problem</span>
+                <p>
+                  The interesting parts of a project get all the attention; the boring parts
+                  are what keep it alive at three in the morning. Builds, deployments,
+                  backups, log parsing, and the data plumbing nobody writes a blog post
+                  about.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">the approach</span>
+                <p>
+                  Small Go binaries, statically linked, deployed as a single file. Python for
+                  anything that has to be written in one afternoon and understood the next
+                  day. SQL schemas designed before the first insert, because migrations are
+                  where optimism goes to die.
+                </p>
+                <p>
+                  systemd units with explicit restart policies instead of a supervisor of the
+                  week, structured logs in one format so that grep remains a legitimate
+                  debugging strategy, and health checks that fail loudly enough to be noticed
+                  by a human, not just by a dashboard.
+                </p>
+              </div>
+
+              <div class="block">
+                <span class="block__label">current state</span>
+                <p>
+                  Running unattended for months at a time. The work left is unglamorous and
+                  therefore being done: better failure messages, retention that does not
+                  silently fill a disk, and tests around the parts that most deserve to be
+                  forgotten.
+                </p>
+              </div>
+            </div>
+
+            <aside class="panel" aria-label="Backend tooling facts">
+              <div class="panel__head">
+                <span class="panel__label">facts</span>
+              </div>
+              <dl class="kv">
+                <dt>status</dt>
+                <dd>running unattended</dd>
+                <dt>languages</dt>
+                <dd>Go · Python · SQL</dd>
+                <dt>deploy</dt>
+                <dd>static binary + systemd</dd>
+                <dt>style</dt>
+                <dd>few dependencies</dd>
+                <dt>hard part</dt>
+                <dd>staying boring</dd>
+              </dl>
+              <ul class="tags gap-top">
+                <li class="tag tag--acc">cli tools</li>
+                <li class="tag">sql</li>
+                <li class="tag">systemd</li>
+                <li class="tag">observability</li>
+              </ul>
+            </aside>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec sec--tight" id="smaller" aria-labelledby="smaller-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">02</span>
+          <h2 class="sechead__title" id="smaller-h">Smaller things</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">not big enough for a deep dive, too useful to omit</span>
+        </header>
+
+        <ul class="linklist">
+          <li>
+            <span class="linkrow">
+              <span class="linkrow__name">dotfiles</span>
+              <span class="linkrow__go" aria-hidden="true">·</span>
+              <span class="linkrow__desc">
+                Hyprland, zsh and neovim configuration, version-controlled so that
+                reinstalling a machine is not a personality test.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="linkrow">
+              <span class="linkrow__name">bench utilities</span>
+              <span class="linkrow__go" aria-hidden="true">·</span>
+              <span class="linkrow__desc">
+                Serial logger, protocol sniffer, a pile of tiny scripts that turned out
+                to be the most used tools on the disk.
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="linkrow">
+              <span class="linkrow__name">keyboards &amp; soldering</span>
+              <span class="linkrow__go" aria-hidden="true">·</span>
+              <span class="linkrow__desc">
+                Switch swaps, layout experiments, firmware reflashing — the cheapest way
+                to keep the iron warm between bigger projects.
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p class="foot__meta">© 2026 itzsnufis · hand-written HTML &amp; SCSS · no framework, no analytics</p>
+      <div class="foot__links">
+        <a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a>
+        <button class="btn btn--ghost" type="button" data-copy="github.com/itzsnufis">copy handle</button>
+        <span class="foot__meta"><span data-clock>--:--:--</span> local</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="term" data-term aria-label="Terminal">
+    <div class="term__bar">
+      <span>itzsnufi@cachyos: ~/bio</span>
+      <span>esc to close</span>
+    </div>
+    <div class="term__log" data-term-log role="log" aria-live="polite" aria-label="Terminal output"></div>
+    <div class="term__row">
+      <span class="term__ps1" aria-hidden="true">~ $</span>
+      <input data-term-input type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" aria-label="Terminal command" placeholder="type `help`">
+    </div>
+    <p class="term__hint">ctrl+l clears · ↑ ↓ walks the history · try `whoami`, `status`, `cd stack`</p>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+

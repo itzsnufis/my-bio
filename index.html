@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>itzsnufis — systems &amp; hardware developer</title>
+  <meta name="description" content="Systems and hardware developer working one layer below the comfortable one: a custom operating system, a phone built around a Raspberry Pi prototype, and the backend tooling in between.">
+  <meta name="author" content="itzsnufis">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f12">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="itzsnufis — systems &amp; hardware developer">
+  <meta property="og:description" content="An operating system from scratch, a phone built around a Raspberry Pi, and backend tooling that stays boring on purpose.">
+  <meta property="og:locale" content="en">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__caret" aria-hidden="true">&gt;</span>
+        <span>itzsnufis</span>
+        <span class="brand__path">~/bio</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">home</a>
+        <a href="about.html">about</a>
+        <a href="projects.html">projects</a>
+        <a href="stack.html">stack</a>
+      </nav>
+
+      <button class="btn btn--ghost" type="button" data-term-open aria-label="Open the terminal overlay">
+        <span aria-hidden="true">$_</span> terminal <kbd aria-hidden="true">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div>
+          <p class="hero__eyebrow">sys · hw · low-level</p>
+          <h1>Software that talks to hardware.</h1>
+
+          <p class="hero__lead">
+            I work one layer below the comfortable one. Right now that means an operating
+            system written from an empty file, a phone built around a Raspberry Pi
+            prototype with its own chip logic, and the backend tooling that keeps both
+            of them honest. CachyOS, terminal first, allergic to magic in the stack.
+          </p>
+
+          <ul class="hero__actions">
+            <li><a href="projects.html">look at the projects →</a></li>
+            <li><a href="stack.html">what I write in →</a></li>
+            <li><a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a></li>
+          </ul>
+
+          <ul class="facts">
+            <li><strong>now</strong> kernel &amp; phone bring-up</li>
+            <li><strong>daily driver</strong> C++ · C · Go</li>
+            <li><strong>desktop</strong> Hyprland on CachyOS</li>
+          </ul>
+        </div>
+
+        <aside class="panel" data-reveal aria-label="Status on the bench">
+          <div class="panel__head">
+            <span class="panel__label">on the bench</span>
+            <span class="mono mute">live</span>
+          </div>
+          <dl class="kv">
+            <dt><span class="dot dot--busy" aria-hidden="true"></span>kernel / userspace</dt>
+            <dd>boots to a shell</dd>
+            <dt><span class="dot dot--busy" aria-hidden="true"></span>custom phone</dt>
+            <dd>rev 2 bring-up</dd>
+            <dt><span class="dot dot--ok" aria-hidden="true"></span>backend tooling</dt>
+            <dd>runs unattended</dd>
+            <dt><span class="dot dot--idle" aria-hidden="true"></span>sleep schedule</dt>
+            <dd>segfault</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="sec" id="toolkit" aria-labelledby="toolkit-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">01</span>
+          <h2 class="sechead__title" id="toolkit-h">Toolkit</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">the short version</span>
+        </header>
+
+        <div class="grid grid--3">
+          <div class="tile" data-reveal>
+            <span class="tile__label">core</span>
+            <ul class="tile__list">
+              <li>C++ <span>systems, tooling</span></li>
+              <li>Python <span>glue, fast experiments</span></li>
+              <li>Go <span>services, one binary</span></li>
+              <li>Java <span>still earning its keep</span></li>
+            </ul>
+          </div>
+
+          <div class="tile" data-reveal>
+            <span class="tile__label">low-level</span>
+            <ul class="tile__list">
+              <li>C <span>kernels, drivers</span></li>
+              <li>Zig <span>new code, fewer surprises</span></li>
+              <li>Rust <span>where safety pays rent</span></li>
+              <li>asm <span>x86-64, boot paths</span></li>
+            </ul>
+          </div>
+
+          <div class="tile" data-reveal>
+            <span class="tile__label">web &amp; tools</span>
+            <ul class="tile__list">
+              <li>TypeScript <span>frontends that stay small</span></li>
+              <li>SCSS <span>this site, for instance</span></li>
+              <li>Bash <span>build duct tape</span></li>
+              <li>SQL <span>schemas that survive</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="note gap-top">
+          The full grid, with honest levels and caveats, lives on
+          <a href="stack.html">stack.html</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="sec" id="building" aria-labelledby="building-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">02</span>
+          <h2 class="sechead__title" id="building-h">Currently building</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">three things, all loud</span>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="panel" data-reveal>
+            <div class="panel__head">
+              <span class="panel__label">os/</span>
+              <span class="mono mute"><span class="dot dot--busy" aria-hidden="true"></span>in progress</span>
+            </div>
+            <h3>A custom operating system</h3>
+            <p class="dim">
+              Bootloader, memory management, interrupts, a scheduler that has been
+              rewritten twice, and a shell that finally behaves. Nothing borrowed,
+              which is exactly why it takes this long.
+            </p>
+            <ul class="tags">
+              <li class="tag">C++</li>
+              <li class="tag">C</li>
+              <li class="tag">asm</li>
+              <li class="tag">x86-64</li>
+            </ul>
+          </article>
+
+          <article class="panel" data-reveal>
+            <div class="panel__head">
+              <span class="panel__label">phone/</span>
+              <span class="mono mute"><span class="dot dot--busy" aria-hidden="true"></span>bring-up</span>
+            </div>
+            <h3>A phone, assembled by hand</h3>
+            <p class="dim">
+              A Raspberry Pi prototype board, custom carrier logic and a stack of small
+              problems that only show up when something is supposed to fit in a pocket
+              and survive a full day.
+            </p>
+            <ul class="tags">
+              <li class="tag">Zig</li>
+              <li class="tag">C</li>
+              <li class="tag">Raspberry Pi</li>
+              <li class="tag">custom PCB</li>
+            </ul>
+          </article>
+
+          <article class="panel" data-reveal>
+            <div class="panel__head">
+              <span class="panel__label">tools/</span>
+              <span class="mono mute"><span class="dot dot--ok" aria-hidden="true"></span>running</span>
+            </div>
+            <h3>Tooling that stays boring</h3>
+            <p class="dim">
+              Small services, few dependencies, logs that still make sense at 2 a.m.
+              The part of the stack that is supposed to be uninteresting, and
+              therefore gets the most tests.
+            </p>
+            <ul class="tags">
+              <li class="tag">Go</li>
+              <li class="tag">Python</li>
+              <li class="tag">SQL</li>
+              <li class="tag">systemd</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--tight" id="more" aria-labelledby="more-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">03</span>
+          <h2 class="sechead__title" id="more-h">Go deeper</h2>
+          <span class="sechead__rule"></span>
+        </header>
+
+        <ul class="linklist">
+          <li>
+            <a class="linkrow" href="projects.html">
+              <span class="linkrow__name">projects</span>
+              <span class="linkrow__go" aria-hidden="true">→</span>
+              <span class="linkrow__desc">Deep dives: the OS, the phone, the Raspberry Pi bench, the tooling.</span>
+            </a>
+          </li>
+          <li>
+            <a class="linkrow" href="about.html">
+              <span class="linkrow__name">about</span>
+              <span class="linkrow__go" aria-hidden="true">→</span>
+              <span class="linkrow__desc">How the hardware habit started, and what happens away from the keyboard.</span>
+            </a>
+          </li>
+          <li>
+            <a class="linkrow" href="stack.html">
+              <span class="linkrow__name">stack</span>
+              <span class="linkrow__go" aria-hidden="true">→</span>
+              <span class="linkrow__desc">Core, low-level, web and tooling — levels instead of percentages.</span>
+            </a>
+          </li>
+          <li>
+            <a class="linkrow" href="https://github.com/itzsnufis" target="_blank" rel="me noopener">
+              <span class="linkrow__name">github ↗</span>
+              <span class="linkrow__go" aria-hidden="true">→</span>
+              <span class="linkrow__desc">Commits with honest messages. Some of them even compile.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p class="foot__meta">© 2026 itzsnufis · hand-written HTML &amp; SCSS · no framework, no analytics</p>
+      <div class="foot__links">
+        <a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a>
+        <button class="btn btn--ghost" type="button" data-copy="github.com/itzsnufis">copy handle</button>
+        <span class="foot__meta"><span data-clock>--:--:--</span> local</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="term" data-term aria-label="Terminal">
+    <div class="term__bar">
+      <span>itzsnufi@cachyos: ~/bio</span>
+      <span>esc to close</span>
+    </div>
+    <div class="term__log" data-term-log role="log" aria-live="polite" aria-label="Terminal output"></div>
+    <div class="term__row">
+      <span class="term__ps1" aria-hidden="true">~ $</span>
+      <input data-term-input type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" aria-label="Terminal command" placeholder="type `help`">
+    </div>
+    <p class="term__hint">ctrl+l clears · ↑ ↓ walks the history · try `whoami`, `status`, `cd projects`</p>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+
+

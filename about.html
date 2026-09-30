@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — itzsnufis</title>
+  <meta name="description" content="How a Raspberry Pi turned into a phone, why an operating system got written from scratch, and what badminton and running have to do with any of it.">
+  <meta name="author" content="itzsnufis">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0f12">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About — itzsnufis">
+  <meta property="og:description" content="Hardware first, then everything else. Systems and hardware developer, CachyOS user, terminal dweller.">
+  <meta property="og:locale" content="en">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__caret" aria-hidden="true">&gt;</span>
+        <span>itzsnufis</span>
+        <span class="brand__path">~/bio</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">home</a>
+        <a href="about.html" aria-current="page">about</a>
+        <a href="projects.html">projects</a>
+        <a href="stack.html">stack</a>
+      </nav>
+
+      <button class="btn btn--ghost" type="button" data-term-open aria-label="Open the terminal overlay">
+        <span aria-hidden="true">$_</span> terminal <kbd aria-hidden="true">⌘K</kbd>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__eyebrow">about</p>
+        <h1>Hardware first, then everything else.</h1>
+
+        <p class="hero__lead">
+          I am itzsnufis — systems and hardware developer. I started out taking things
+          apart to find out why they were slow, and never really stopped. These days
+          that habit produces an operating system, a hand-built phone, and a workaround
+          for every vendor tool that decided not to exist.
+        </p>
+
+        <ul class="facts">
+          <li><strong>role</strong> systems &amp; hardware developer</li>
+          <li><strong>focus</strong> low-level &amp; backend</li>
+          <li><strong>os</strong> CachyOS / Arch</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="story" aria-labelledby="story-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">01</span>
+          <h2 class="sechead__title" id="story-h">The hardware story</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">condensed, four steps</span>
+        </header>
+
+        <div class="split">
+          <div class="prose">
+            <p>
+              It began with a Raspberry Pi and a suspicious amount of free time. A board
+              that boots Linux for forty euros is a standing invitation: sure, it runs
+              an operating system — but <em>how</em>? That question is expensive to ask,
+              because the honest answer is "write one and find out".
+            </p>
+            <p>
+              The phone came next, and it came from irritation rather than ambition.
+              Pocket computers are the least repairable, least understandable machines
+              most people own. So the plan was simple: take a Pi, add the parts a phone
+              actually needs — radio, display, power path, battery — and build the logic
+              around it. Nothing about that plan survived contact with reality intact,
+              which is exactly what makes it worth doing.
+            </p>
+            <p>
+              Everything else on this site is the fallout: a kernel that keeps growing,
+              a scheduler that keeps getting rewritten, and backend tooling written in
+              the unglamorous style, because that is the kind of software I trust.
+            </p>
+          </div>
+
+          <ol class="tl">
+            <li>
+              <span class="tl__step">step 01</span>
+              <h3>One single-board computer</h3>
+              <p>Bought to "play around with". Immediately compiled a kernel on it instead.</p>
+            </li>
+            <li>
+              <span class="tl__step">step 02</span>
+              <h3>The phone idea</h3>
+              <p>If a phone is just a computer with opinions about antennas, build one that takes instructions.</p>
+            </li>
+            <li>
+              <span class="tl__step">step 03</span>
+              <h3>Chip logic, by hand</h3>
+              <p>Level shifters, power rails, I2C and SPI buses, and a multimeter that has seen things.</p>
+            </li>
+            <li>
+              <span class="tl__step">step 04</span>
+              <h3>Where it stands</h3>
+              <p>Boots, telephones, overheats politely. Antenna tuning still has its own agenda.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="off-clock" aria-labelledby="off-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">02</span>
+          <h2 class="sechead__title" id="off-h">Off the clock</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">no screens involved</span>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="panel" data-reveal>
+            <div class="panel__head">
+              <span class="panel__label">badminton</span>
+            </div>
+            <h3>Twice a week, badly at first</h3>
+            <p class="dim">
+              Fastest way to find out which muscle groups a compiler does not train.
+              Footwork is essentially cache locality applied to legs — get the position
+              right and everything after it is cheap.
+            </p>
+          </article>
+
+          <article class="panel" data-reveal>
+            <div class="panel__head">
+              <span class="panel__label">running</span>
+            </div>
+            <h3>Podcast-length distances</h3>
+            <p class="dim">
+              Ten-ish kilometres, deliberately unhurried. Also the most reliable debugger
+              I own: the answer to a stuck problem usually turns up around kilometre four,
+              uninvited.
+            </p>
+          </article>
+
+          <article class="panel" data-reveal>
+            <div class="panel__head">
+              <span class="panel__label">the bench</span>
+            </div>
+            <h3>Screws and a drawer of maybe</h3>
+            <p class="dim">
+              Something gets opened every other week: keyboard switches, thermal paste,
+              a fan that has learned to whine at exactly the wrong frequency. The parts
+              drawer is labelled "will be useful", and it is — eventually.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="environment" aria-labelledby="env-h">
+      <div class="wrap">
+        <header class="sechead">
+          <span class="sechead__idx">03</span>
+          <h2 class="sechead__title" id="env-h">Environment &amp; habits</h2>
+          <span class="sechead__rule"></span>
+          <span class="sechead__note">what the machine looks like</span>
+        </header>
+
+        <div class="grid grid--2">
+          <aside class="panel" data-reveal aria-label="Environment">
+            <div class="panel__head">
+              <span class="panel__label">environment</span>
+              <span class="mono mute">CachyOS / Arch</span>
+            </div>
+            <dl class="kv">
+              <dt>distribution</dt>
+              <dd>CachyOS, Arch base</dd>
+              <dt>session</dt>
+              <dd>Hyprland (tiling)</dd>
+              <dt>sometimes</dt>
+              <dd>KDE, when a mouse feels right</dd>
+              <dt>shell</dt>
+              <dd>zsh + dotfiles in git</dd>
+              <dt>terminal</dt>
+              <dd>kitty, keyboard only</dd>
+              <dt>editor</dt>
+              <dd>neovim by default</dd>
+              <dt>builds</dt>
+              <dd>CMake · Meson · Make</dd>
+              <dt>debugging</dt>
+              <dd>gdb · perf · strace · printf</dd>
+            </dl>
+          </aside>
+
+          <div class="prose" data-reveal>
+            <span class="block__label">working habits</span>
+            <ul>
+              <li>Datasheet first, source code second. Always in that order.</li>
+              <li>Measure before optimising — guessing is just gambling with worse odds.</li>
+              <li>Dependencies are a subscription. Keep the list short and paid up.</li>
+              <li>Commit messages are documentation for someone with no memory: me, in six months.</li>
+              <li>Tests live where the code is supposed to be boring. That is the point of boring code.</li>
+              <li>Nothing is finished until it still works after a reboot and a power cut.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p class="foot__meta">© 2026 itzsnufis · hand-written HTML &amp; SCSS · no framework, no analytics</p>
+      <div class="foot__links">
+        <a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a>
+        <button class="btn btn--ghost" type="button" data-copy="github.com/itzsnufis">copy handle</button>
+        <span class="foot__meta"><span data-clock>--:--:--</span> local</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="term" data-term aria-label="Terminal">
+    <div class="term__bar">
+      <span>itzsnufi@cachyos: ~/bio</span>
+      <span>esc to close</span>
+    </div>
+    <div class="term__log" data-term-log role="log" aria-live="polite" aria-label="Terminal output"></div>
+    <div class="term__row">
+      <span class="term__ps1" aria-hidden="true">~ $</span>
+      <input data-term-input type="text" autocomplete="off" autocapitalize="off"
+             spellcheck="false" aria-label="Terminal command" placeholder="type `help`">
+    </div>
+    <p class="term__hint">ctrl+l clears · ↑ ↓ walks the history · try `whoami`, `status`, `cd projects`</p>
+  </dialog>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+
+

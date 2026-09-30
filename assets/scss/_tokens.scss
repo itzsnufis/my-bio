@@ -1,0 +1,79 @@
+// =============================================================
+//  _tokens.scss — the single source of truth
+//  everything lives as a custom property so it can be poked at
+//  from devtools without a rebuild. colours are hand-picked,
+//  no gradients on text, no purple-blue SaaS soup.
+// =============================================================
+
+:root {
+  // -- surfaces -------------------------------------------------
+  --bg:        #0d0f12;
+  --bg-raise:  #101419;
+  --bg-inset:  #0a0c0f;
+  --bg-hover:  #14191f;
+
+  // -- hairlines (1px, always) ----------------------------------
+  --line:      #1a1f26;
+  --line-soft: #14181d;
+  --line-hard: #2b333e;
+
+  // -- text ------------------------------------------------------
+  --fg:        #e7eaef;
+  --fg-dim:    #9aa3b0;
+  --fg-mute:   #68707c;
+  --fg-faint:  #464d57;
+
+  // -- signals ---------------------------------------------------
+  --acc:       #e0b073; // amber. lab equipment, not neon.
+  --acc-dim:   #8a6c47;
+  --ok:        #7fbf8f;
+  --busy:      #d98f6a;
+
+  // -- type ------------------------------------------------------
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", "Geist Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0:  1rem;
+  --step-1:  1.1875rem;
+  --step-2:  clamp(1.4rem, 2.4vw, 1.6875rem);
+  --step-3:  clamp(1.75rem, 3.6vw, 2.375rem);
+  --step-4:  clamp(2.35rem, 7vw, 4rem);
+
+  // -- rhythm ----------------------------------------------------
+  --wrap: 1120px;
+  --gut:  clamp(1.25rem, 4vw, 2.5rem);
+  --gap:  clamp(1rem, 2vw, 1.5rem);
+  --sec:  clamp(3.25rem, 8vh, 6rem);
+
+  --r:      3px;
+  --speedy: 140ms;
+}
+
+// -- mixins ----------------------------------------------------
+@mixin mono-label {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+@mixin upper {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@mixin below($w: 760px) {
+  @media (max-width: $w) { @content; }
+}
+
+@mixin above($w: 900px) {
+  @media (min-width: $w) { @content; }
+}
+
+// fine dotted leader, used in spec lists (print leftovers, on purpose)
+@mixin leader {
+  border-bottom: 1px dotted var(--line-hard);
+}

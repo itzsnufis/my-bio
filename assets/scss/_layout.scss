@@ -1,0 +1,189 @@
+@use "tokens" as *;
+
+// =============================================================
+//  _layout.scss — shell: wrap, topbar, nav, sections, footer
+// =============================================================
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+// -- skip link -------------------------------------------------
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+
+  &:focus {
+    left: var(--gut);
+    top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-raise);
+    border: 1px solid var(--acc);
+    border-radius: var(--r);
+    text-decoration: none;
+    @include mono-label;
+  }
+}
+
+// -- topbar ----------------------------------------------------
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #0d0f12d9;
+  backdrop-filter: blur(12px) saturate(120%);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  min-height: 54px;
+}
+
+// on narrow screens the nav gets its own row instead of hiding in a scroll area
+@include below(640px) {
+  .topbar__inner {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.8rem;
+    padding-block: 0.5rem 0;
+  }
+
+  .brand { flex: 1 1 auto; }
+
+  .nav {
+    order: 3;
+    flex: 1 1 100%;
+    margin-left: -0.5rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  .topbar .btn { padding-inline: 0.6rem; }
+  .topbar .btn kbd { display: none; }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex: none;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  letter-spacing: -0.01em;
+
+  &__caret { color: var(--acc); }
+  &__path  { color: var(--fg-faint); }
+
+  @include below(560px) { &__path { display: none; } }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+
+  a {
+    flex: none;
+    padding: 0.35rem 0.55rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--fg-mute);
+    text-decoration: none;
+    border-radius: var(--r);
+    transition: color var(--speedy) linear, background-color var(--speedy) linear;
+
+    &:hover { color: var(--fg); background: var(--bg-raise); }
+
+    &[aria-current="page"] {
+      color: var(--fg);
+      box-shadow: inset 0 -1px 0 var(--acc);
+    }
+  }
+}
+
+// -- sections --------------------------------------------------
+main { display: block; }
+
+.sec { padding-block: var(--sec); }
+.sec + .sec { border-top: 1px solid var(--line-soft); }
+.sec--tight { padding-block: clamp(2.25rem, 5vh, 3.5rem); }
+
+.sechead {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.9rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+
+  &__idx  { @include mono-label; color: var(--acc-dim); }
+  &__title { font-size: var(--step-2); letter-spacing: -0.02em; }
+  &__rule {
+    order: 3;
+    flex: 1 1 3rem;
+    height: 1px;
+    background: var(--line);
+    align-self: center;
+    min-width: 2rem;
+  }
+  &__note {
+    order: 4;
+    @include mono-label;
+    color: var(--fg-faint);
+  }
+}
+
+// -- grids -----------------------------------------------------
+.grid { display: grid; gap: var(--gap); }
+.grid--2, .grid--3 { grid-template-columns: minmax(0, 1fr); }
+
+@include above(720px) {
+  .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@include above(940px) {
+  .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.split { display: grid; gap: clamp(1.5rem, 4vw, 3rem); grid-template-columns: minmax(0, 1fr); }
+@include above(980px) {
+  .split { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .split--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+// -- footer ----------------------------------------------------
+.foot {
+  border-top: 1px solid var(--line);
+  padding-block: 1.75rem 2.5rem;
+  margin-top: var(--sec);
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem 1.5rem;
+  }
+
+  p { margin: 0; }
+  &__meta { @include mono-label; color: var(--fg-faint); }
+  &__links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
+
+  a {
+    color: var(--fg-mute);
+    text-decoration-color: var(--line);
+    &:hover { color: var(--fg); }
+  }
+}
