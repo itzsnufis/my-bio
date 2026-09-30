@@ -1,9 +1,5 @@
 @use "tokens" as *;
 
-// =============================================================
-//  _layout.scss — shell: wrap, topbar, nav, sections, footer
-// =============================================================
-
 .wrap {
   width: 100%;
   max-width: var(--wrap);
@@ -11,7 +7,6 @@
   padding-inline: var(--gut);
 }
 
-// -- skip link -------------------------------------------------
 .skip {
   position: absolute;
   left: -9999px;
@@ -30,24 +25,23 @@
   }
 }
 
-// -- topbar ----------------------------------------------------
 .topbar {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: #0d0f12d9;
-  backdrop-filter: blur(12px) saturate(120%);
+  background: #0c0e11d6;
+  backdrop-filter: blur(12px) saturate(115%);
   border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 #00000059;
 }
 
 .topbar__inner {
   display: flex;
   align-items: center;
   gap: 0.5rem 1.25rem;
-  min-height: 54px;
+  min-height: 56px;
 }
 
-// on narrow screens the nav gets its own row instead of hiding in a scroll area
 @include below(640px) {
   .topbar__inner {
     flex-wrap: wrap;
@@ -79,10 +73,19 @@
   font-size: var(--step--1);
   letter-spacing: -0.01em;
 
-  &__caret { color: var(--acc); }
-  &__path  { color: var(--fg-faint); }
+  &__caret {
+    color: var(--acc);
+    animation: caret 2.4s steps(1) infinite;
+  }
+
+  &__path { color: var(--fg-faint); }
 
   @include below(560px) { &__path { display: none; } }
+}
+
+@keyframes caret {
+  0%, 46% { opacity: 1; }
+  50%, 96% { opacity: 0.25; }
 }
 
 .nav {
@@ -115,7 +118,6 @@
   }
 }
 
-// -- sections --------------------------------------------------
 main { display: block; }
 
 .sec { padding-block: var(--sec); }
@@ -123,30 +125,31 @@ main { display: block; }
 .sec--tight { padding-block: clamp(2.25rem, 5vh, 3.5rem); }
 
 .sechead {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.9rem;
   margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 
-  &__idx  { @include mono-label; color: var(--acc-dim); }
-  &__title { font-size: var(--step-2); letter-spacing: -0.02em; }
-  &__rule {
-    order: 3;
-    flex: 1 1 3rem;
-    height: 1px;
-    background: var(--line);
-    align-self: center;
-    min-width: 2rem;
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    font-size: var(--step-2);
+
+    &::after {
+      content: "";
+      flex: 1 1 2.5rem;
+      min-width: 1.5rem;
+      height: 1px;
+      background: repeating-linear-gradient(to right,
+        var(--line-hard) 0 3px, #2e374200 3px 8px);
+    }
   }
-  &__note {
-    order: 4;
+
+  &__deck {
+    margin: 0.6rem 0 0;
     @include mono-label;
-    color: var(--fg-faint);
+    color: var(--fg-mute);
   }
 }
 
-// -- grids -----------------------------------------------------
 .grid { display: grid; gap: var(--gap); }
 .grid--2, .grid--3 { grid-template-columns: minmax(0, 1fr); }
 
@@ -160,10 +163,8 @@ main { display: block; }
 .split { display: grid; gap: clamp(1.5rem, 4vw, 3rem); grid-template-columns: minmax(0, 1fr); }
 @include above(980px) {
   .split { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
-  .split--even { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-// -- footer ----------------------------------------------------
 .foot {
   border-top: 1px solid var(--line);
   padding-block: 1.75rem 2.5rem;
@@ -179,7 +180,7 @@ main { display: block; }
 
   p { margin: 0; }
   &__meta { @include mono-label; color: var(--fg-faint); }
-  &__links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; }
+  &__links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1.1rem; }
 
   a {
     color: var(--fg-mute);

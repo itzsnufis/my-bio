@@ -71,10 +71,8 @@
     <section class="sec" id="story" aria-labelledby="story-h">
       <div class="wrap">
         <header class="sechead">
-          <span class="sechead__idx">01</span>
-          <h2 class="sechead__title" id="story-h">The hardware story</h2>
-          <span class="sechead__rule"></span>
-          <span class="sechead__note">condensed, four steps</span>
+          <h2 id="story-h">The hardware story</h2>
+          <p class="sechead__deck">Four steps, condensed.</p>
         </header>
 
         <div class="split">
@@ -102,22 +100,18 @@
 
           <ol class="tl">
             <li>
-              <span class="tl__step">step 01</span>
               <h3>One single-board computer</h3>
               <p>Bought to "play around with". Immediately compiled a kernel on it instead.</p>
             </li>
             <li>
-              <span class="tl__step">step 02</span>
               <h3>The phone idea</h3>
               <p>If a phone is just a computer with opinions about antennas, build one that takes instructions.</p>
             </li>
             <li>
-              <span class="tl__step">step 03</span>
               <h3>Chip logic, by hand</h3>
               <p>Level shifters, power rails, I2C and SPI buses, and a multimeter that has seen things.</p>
             </li>
             <li>
-              <span class="tl__step">step 04</span>
               <h3>Where it stands</h3>
               <p>Boots, telephones, overheats politely. Antenna tuning still has its own agenda.</p>
             </li>
@@ -129,10 +123,7 @@
     <section class="sec" id="off-clock" aria-labelledby="off-h">
       <div class="wrap">
         <header class="sechead">
-          <span class="sechead__idx">02</span>
-          <h2 class="sechead__title" id="off-h">Off the clock</h2>
-          <span class="sechead__rule"></span>
-          <span class="sechead__note">no screens involved</span>
+          <h2 id="off-h">Off the clock</h2>
         </header>
 
         <div class="grid grid--3">
@@ -178,10 +169,8 @@
     <section class="sec" id="environment" aria-labelledby="env-h">
       <div class="wrap">
         <header class="sechead">
-          <span class="sechead__idx">03</span>
-          <h2 class="sechead__title" id="env-h">Environment &amp; habits</h2>
-          <span class="sechead__rule"></span>
-          <span class="sechead__note">what the machine looks like</span>
+          <h2 id="env-h">Environment &amp; habits</h2>
+          <p class="sechead__deck">What the machine actually looks like.</p>
         </header>
 
         <div class="grid grid--2">
@@ -211,7 +200,7 @@
           </aside>
 
           <div class="prose" data-reveal>
-            <span class="block__label">working habits</span>
+            <span class="kicker kicker--acc">working habits</span>
             <ul>
               <li>Datasheet first, source code second. Always in that order.</li>
               <li>Measure before optimising — guessing is just gambling with worse odds.</li>
@@ -224,11 +213,57 @@
         </div>
       </div>
     </section>
+
+    <section class="sec sec--tight" id="busted" aria-labelledby="busted-h">
+      <div class="wrap">
+        <header class="sechead">
+          <h2 id="busted-h">Still busted</h2>
+        </header>
+
+        <div class="grid grid--2">
+          <div class="prose" data-reveal>
+            <ul>
+              <li>
+                Antenna tuning on the phone. Good enough to place a call, bad enough
+                to be annoying about it.
+              </li>
+              <li>
+                The kernel's process model. Userspace isolation exists; whether it is
+                correct is a separate question, and it stays open.
+              </li>
+              <li>
+                One interrupt handler holding a lock longer than it should. Written
+                down, not yet fixed.
+              </li>
+              <li>
+                Sleep schedule. Least reliable part of the entire setup.
+              </li>
+            </ul>
+          </div>
+
+          <aside class="panel" data-reveal aria-label="Next on the list">
+            <div class="panel__head">
+              <span class="panel__label">next on the list</span>
+            </div>
+            <dl class="kv">
+              <dt>filesystem</dt>
+              <dd>drop the optimism</dd>
+              <dt>carrier board</dt>
+              <dd>rev 2, re-routed</dd>
+              <dt>scheduler</dt>
+              <dd>third attempt</dd>
+              <dt>writing things down</dt>
+              <dd>earlier than last time</dd>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="foot">
     <div class="wrap foot__inner">
-      <p class="foot__meta">© 2026 itzsnufis · hand-written HTML &amp; SCSS · no framework, no analytics</p>
+      <p class="foot__meta">© 2026 itzsnufis · written by hand, served as files · no framework, no analytics, no cookies</p>
       <div class="foot__links">
         <a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a>
         <button class="btn btn--ghost" type="button" data-copy="github.com/itzsnufis">copy handle</button>

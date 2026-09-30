@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
-# SCSS -> CSS. No node, no bundler, no config file. Just sass.
-#   ./build.sh          expanded (default, readable)
-#   ./build.sh --min    compressed, for actually shipping
 set -eu
 
 SRC="assets/scss/main.scss"

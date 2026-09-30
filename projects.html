@@ -70,10 +70,7 @@
     <section class="sec" id="dives" aria-labelledby="dives-h">
       <div class="wrap">
         <header class="sechead">
-          <span class="sechead__idx">01</span>
-          <h2 class="sechead__title" id="dives-h">Deep dives</h2>
-          <span class="sechead__rule"></span>
-          <span class="sechead__note">problem, approach, current state</span>
+          <h2 id="dives-h">Deep dives</h2>
         </header>
 
         <article class="deep" data-reveal aria-labelledby="os-h">
@@ -88,7 +85,7 @@
           <div class="deep__body">
             <div class="prose">
               <div class="block">
-                <span class="block__label">the problem</span>
+                <span class="kicker kicker--acc">the problem</span>
                 <p>
                   Every abstraction I leaned on daily was somebody else's decision. Page
                   tables, scheduling, interrupt handling — all of it worked, none of it was
@@ -99,7 +96,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">the approach</span>
+                <span class="kicker kicker--acc">the approach</span>
                 <p>
                   Small steps, each with a visible checkpoint: text mode, then a framebuffer,
                   then an IDT that survives deliberately triggered exceptions, then a physical
@@ -115,7 +112,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">current state</span>
+                <span class="kicker kicker--acc">current state</span>
                 <p>
                   Boots on x86-64 into a shell that runs a handful of real commands.
                   Userspace isolation exists and is not trusted yet. Next: clean up the
@@ -162,7 +159,7 @@
           <div class="deep__body">
             <div class="prose">
               <div class="block">
-                <span class="block__label">the problem</span>
+                <span class="kicker kicker--acc">the problem</span>
                 <p>
                   A phone is the computer most people trust the least and understand the
                   most rarely: sealed shut, undocumented at the edges, impossible to repair
@@ -172,7 +169,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">the approach</span>
+                <span class="kicker kicker--acc">the approach</span>
                 <p>
                   A Raspberry Pi as the compute heart, mounted on a prototype carrier board.
                   Around it, the parts that separate a computer from a phone: a real power
@@ -194,7 +191,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">current state</span>
+                <span class="kicker kicker--acc">current state</span>
                 <p>
                   It boots, it drives the display, and it can place a call — which was the
                   moment this stopped being a pile of boards. Currently losing a fight with
@@ -242,7 +239,7 @@
           <div class="deep__body">
             <div class="prose">
               <div class="block">
-                <span class="block__label">the problem</span>
+                <span class="kicker kicker--acc">the problem</span>
                 <p>
                   Prototyping needs a place where boards, cables and bad ideas can meet
                   without endangering the main machine. Mine is a corner of the desk with a
@@ -252,7 +249,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">the approach</span>
+                <span class="kicker kicker--acc">the approach</span>
                 <p>
                   One experiment at a time, written down: bus timing, sensor bring-up, GPIO
                   work, thermal profiling, and small utilities that turn a Pi into a
@@ -263,7 +260,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">current state</span>
+                <span class="kicker kicker--acc">current state</span>
                 <p>
                   Rotating: SPI throughput on the Pico, behaviour under sustained thermal
                   load, and a level-shifting circuit destined for the phone's carrier board.
@@ -311,7 +308,7 @@
           <div class="deep__body">
             <div class="prose">
               <div class="block">
-                <span class="block__label">the problem</span>
+                <span class="kicker kicker--acc">the problem</span>
                 <p>
                   The interesting parts of a project get all the attention; the boring parts
                   are what keep it alive at three in the morning. Builds, deployments,
@@ -321,7 +318,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">the approach</span>
+                <span class="kicker kicker--acc">the approach</span>
                 <p>
                   Small Go binaries, statically linked, deployed as a single file. Python for
                   anything that has to be written in one afternoon and understood the next
@@ -337,7 +334,7 @@
               </div>
 
               <div class="block">
-                <span class="block__label">current state</span>
+                <span class="kicker kicker--acc">current state</span>
                 <p>
                   Running unattended for months at a time. The work left is unglamorous and
                   therefore being done: better failure messages, retention that does not
@@ -378,17 +375,14 @@
     <section class="sec sec--tight" id="smaller" aria-labelledby="smaller-h">
       <div class="wrap">
         <header class="sechead">
-          <span class="sechead__idx">02</span>
-          <h2 class="sechead__title" id="smaller-h">Smaller things</h2>
-          <span class="sechead__rule"></span>
-          <span class="sechead__note">not big enough for a deep dive, too useful to omit</span>
+          <h2 id="smaller-h">Smaller things</h2>
+          <p class="sechead__deck">Too small for a deep dive, too useful to drop.</p>
         </header>
 
         <ul class="linklist">
           <li>
             <span class="linkrow">
               <span class="linkrow__name">dotfiles</span>
-              <span class="linkrow__go" aria-hidden="true">·</span>
               <span class="linkrow__desc">
                 Hyprland, zsh and neovim configuration, version-controlled so that
                 reinstalling a machine is not a personality test.
@@ -398,7 +392,6 @@
           <li>
             <span class="linkrow">
               <span class="linkrow__name">bench utilities</span>
-              <span class="linkrow__go" aria-hidden="true">·</span>
               <span class="linkrow__desc">
                 Serial logger, protocol sniffer, a pile of tiny scripts that turned out
                 to be the most used tools on the disk.
@@ -408,7 +401,6 @@
           <li>
             <span class="linkrow">
               <span class="linkrow__name">keyboards &amp; soldering</span>
-              <span class="linkrow__go" aria-hidden="true">·</span>
               <span class="linkrow__desc">
                 Switch swaps, layout experiments, firmware reflashing — the cheapest way
                 to keep the iron warm between bigger projects.
@@ -422,7 +414,7 @@
 
   <footer class="foot">
     <div class="wrap foot__inner">
-      <p class="foot__meta">© 2026 itzsnufis · hand-written HTML &amp; SCSS · no framework, no analytics</p>
+      <p class="foot__meta">© 2026 itzsnufis · written by hand, served as files · no framework, no analytics, no cookies</p>
       <div class="foot__links">
         <a href="https://github.com/itzsnufis" target="_blank" rel="me noopener">github ↗</a>
         <button class="btn btn--ghost" type="button" data-copy="github.com/itzsnufis">copy handle</button>

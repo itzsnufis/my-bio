@@ -1,22 +1,11 @@
-/* =============================================================
-   main.js — vanilla, no dependencies, no build step
-   1. reveal on scroll (skipped when motion is unwanted)
-   2. copy-to-clipboard buttons
-   3. footer clock
-   4. terminal overlay (ctrl/⌘+K) with history and real commands
-   ============================================================= */
-
-// --------------------------------------------------------- 1–3
 (() => {
   "use strict";
 
   const doc = document;
 
-  // -- reveal on scroll ----------------------------------------
   const reveals = doc.querySelectorAll("[data-reveal]");
   const motionOk = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // anything already on screen is shown straight away: no fade, no flash
   const inView = (el) => {
     const box = el.getBoundingClientRect();
     return box.top < window.innerHeight * 0.92 && box.bottom > 0;
@@ -40,7 +29,6 @@
     reveals.forEach((el) => el.classList.add("is-in"));
   }
 
-  // -- copy buttons: <button data-copy="value">label</button> ---
   const copyFallback = (value, done) => {
     const field = doc.createElement("textarea");
     field.value = value;
@@ -48,7 +36,7 @@
     field.style.cssText = "position:fixed;top:0;left:-9999px";
     doc.body.appendChild(field);
     field.select();
-    try { doc.execCommand("copy"); } catch { /* nothing left to try */ }
+    try { doc.execCommand("copy"); } catch {}
     field.remove();
     done();
   };
@@ -76,7 +64,6 @@
     });
   });
 
-  // -- footer clock, in whatever timezone the visitor lives in --
   const clock = doc.querySelector("[data-clock]");
   if (clock) {
     const fmt = new Intl.DateTimeFormat(undefined, {
@@ -88,12 +75,6 @@
   }
 })();
 
-/* ---------------------------------------------------------------
-   4. terminal overlay
-   Opens with ctrl/⌘+K or the button in the topbar. Real history,
-   real argument parsing, honest answers. Nothing here claims to be
-   a shell — it just reads like one.
-   --------------------------------------------------------------- */
 (() => {
   "use strict";
 
@@ -109,7 +90,6 @@
   let cursor = 0;
   let booted = false;
 
-  // routes are scraped from the nav, so they cannot drift from the site
   const routes = {};
   const names = [];
   doc.querySelectorAll(".nav a").forEach((link) => {
@@ -154,7 +134,6 @@
 
   const writeBlock = (lines, kind) => lines.forEach((line) => write(line, kind));
 
-  // navigate after echoing, so a `cd` visibly does something
   const go = (url, note) => {
     write(note || `→ ${url}`, "ok");
     window.setTimeout(() => { window.location.href = url; }, 180);
@@ -292,7 +271,6 @@
     }
   });
 
-  // <dialog> closes itself on Esc; click-outside is added for comfort
   term.addEventListener("click", (event) => {
     const box = term.getBoundingClientRect();
     const outside = event.clientX < box.left || event.clientX > box.right ||
@@ -302,4 +280,3 @@
     else input.focus();
   });
 })();
-
